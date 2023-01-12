@@ -1,20 +1,17 @@
-import 'package:shelf/shelf.dart';
-import 'package:shelf/shelf_io.dart';
-import 'dart:io' show Platform;
-import 'package:shelf_router/shelf_router.dart';
+import 'package:dart_shelf_practice/server.dart';
 
 void main() async {
   // Variable for PORT
   Map<String, String> envVars = Platform.environment;
   var portEnv = envVars['PORT'];
-  var _port = portEnv == null ? 7777 : int.parse(portEnv);
+  var port = portEnv == null ? 7777 : int.parse(portEnv);
 
   //Routes
-  final router = Router();
+  final apiRouter = ApiRouter().router;
 
-  final handler = Pipeline().addHandler(router);
+  final handler = Pipeline().addHandler(apiRouter);
   // Create server
-  final server = await serve(handler, '0.0.0.0', _port);
+  final server = await serve(handler, '0.0.0.0', port);
   // Server on message
   print('☀️ Server running on localhost:${server.port} ☀️');
 }
