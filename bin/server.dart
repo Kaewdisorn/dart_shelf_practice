@@ -7,7 +7,9 @@ void main() async {
   var port = portEnv == null ? 7777 : int.parse(portEnv);
 
   //Routes
-  final apiRouter = ApiRouter().router;
+  final homeRouter = HomeRouter();
+
+  final apiRouter = ApiRouter(homeRouter: homeRouter).router;
 
   final handler = Pipeline().addHandler(apiRouter);
   // Create server
