@@ -1,17 +1,18 @@
 import 'package:dart_shelf_practice/server.dart';
 
 class ApiRouter {
-  final HomeRouter homeRouter;
+  final UserRouter userRouter;
 
   ApiRouter({
-    required this.homeRouter,
+    required this.userRouter,
   });
 
   Handler get router {
     final router = Router();
-    final prefix = '/';
 
-    router.mount(prefix, homeRouter.router);
+    //router.get("/", (Request request) => Response.ok("Welcome to API"));
+
+    router.mount("/user", userRouter.router);
 
     router.all('/<ignored|.*>', (Request request) => Response.notFound('Page not found'));
     return Pipeline().addHandler(router);
