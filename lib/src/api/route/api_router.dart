@@ -10,7 +10,7 @@ class ApiRouter {
   Handler get router {
     final router = Router();
 
-    //router.get("/", (Request request) => Response.ok("Welcome to API"));
+    router.get("/", (Request request) => Response.ok("Welcome to API"));
 
     router.mount("/user", userRouter.router);
 
