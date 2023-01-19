@@ -4,7 +4,7 @@ final getIt = GetIt.instance;
 
 initGetIt() {
   //usecase
-  getIt.registerLazySingleton<UserUsecase>(() => UserUsecaseImpl());
+  getIt.registerLazySingleton<UserUsecase>(() => UserUsecase());
 
   //repository
   getIt.registerLazySingleton<UserRepository>(() => UserRepositoryImpl());

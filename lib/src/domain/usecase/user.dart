@@ -1,8 +1,6 @@
 import 'package:dart_shelf_practice/server.dart';
 
-//business logic here
-class UserUsecaseImpl implements UserUsecase {
-  @override
+class UserUsecase {
   getAllUser() {
     UserRepository userRepository = getIt<UserRepository>();
     userRepository.fecth();

@@ -1,6 +1,5 @@
-import 'package:dart_shelf_practice/src/domain/user.dart';
+import 'package:dart_shelf_practice/server.dart';
 
-// DB QUERY HERE
 class UserRepositoryImpl implements UserRepository {
   @override
   fecth() {
